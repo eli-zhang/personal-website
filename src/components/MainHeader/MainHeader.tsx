@@ -3,7 +3,7 @@ import { ImageContainer, Background, ShiftedTextContainer, Heading, Body, BodyEl
 const MainHeader = () => {
     return (
         <ImageContainer>
-            <Background src="/media/main_img.png" alt="background"/>
+            <Background src={`${process.env.PUBLIC_URL}/media/main_img.png`} alt="background"/>
             <ShiftedTextContainer>
                 <Heading>Hey, Im Eli.</Heading>
                 <Body>
