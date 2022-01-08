@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { keyframes } from 'styled-components'
 
 interface Props {
     pos: number
@@ -40,6 +41,19 @@ export const BoldText = styled.b`
     font-family: Canter-Bold, Arial, serif;
 `
 
-export const BodyElement = styled.p`
-    color: rgba(255, 255, 255, ${(props: Props) => (0.7 - (0.1 * props.pos))})
+const fadeInAnimation = keyframes`
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
 `
+
+export const BodyElement = styled.p`
+    opacity: 0;
+    color: rgba(255, 255, 255, ${(props: Props) => (0.7 - (0.1 * props.pos))});
+    animation: ${fadeInAnimation} 0.5s linear forwards;
+    animation-delay: ${(props: Props) => (0.25 * props.pos)}s;
+`
+
+// #hideMe {
+//     -webkit-animation: cssAnimation 5s forwards; 
+//     animation: cssAnimation 5s forwards;
+// }

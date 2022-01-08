@@ -1,10 +1,21 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Canter';
+  src: local('Canter'), url(./fonts/Canter/Canter-Light.otf) format('opentype');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: 'Canter';
+    font-weight: 900;
+    src: local('Canter'), url(./fonts/Canter/Canter-Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Canter-Bold3D';
+    src: local('Canter'), url(./fonts/Canter/Canter-Bold3D.otf) format('opentype');
+}
+
+.App {
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -26,13 +37,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
