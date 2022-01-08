@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'Canter';
+  font-family: 'Canter-Light';
   src: local('Canter'), url(./fonts/Canter/Canter-Light.otf) format('opentype');
 }
 
 @font-face {
-    font-family: 'Canter';
+    font-family: 'Canter-Bold';
     font-weight: 900;
     src: local('Canter'), url(./fonts/Canter/Canter-Bold.otf) format('opentype');
 }
