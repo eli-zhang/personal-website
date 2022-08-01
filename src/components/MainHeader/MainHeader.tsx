@@ -1,9 +1,9 @@
-import { ImageContainer, Background, ShiftedTextContainer, Heading, Body, BodyElement, BoldText} from './MainHeaderStyled'
+import { ImageContainer, Background, ShiftedTextContainer, Heading, Body, BodyElement, BoldText} from './Styled'
 
 const MainHeader = () => {
     return (
         <ImageContainer>
-            <Background src={`${process.env.PUBLIC_URL}/media/main_img.png`} alt="background"/>
+            <Background src={`${process.env.PUBLIC_URL}/media/main_img.jpg`} alt="background"/>
             <ShiftedTextContainer>
                 <Heading>Hey, Im Eli.</Heading>
                 <Body>
