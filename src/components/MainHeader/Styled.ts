@@ -17,8 +17,8 @@ export const Background = styled.img`
 export const ShiftedTextContainer = styled.div`
     position: absolute;
     color: white;
-    top: 18vw;
-    left: 50vw;
+    top: 22vw;
+    left: 48vw;
     width: 100%;
     text-transform: lowercase; 
     text-align: left;
@@ -27,19 +27,21 @@ export const ShiftedTextContainer = styled.div`
 `
 
 export const Heading = styled.h1`
-    font-size: 12vw;
-    margin-left: -0.4vw;
-    font-family: Canter-Bold3D, Arial, serif;
+    font-size: 80px;
+    font-family: "Voltaire", sans-serif;
+    font-weight: 200;
 `
 
 export const Body = styled.div`
-    margin-top: -0.1vw;
-    font-size: 3.7vw;
-    font-family: Canter-Light, Arial, serif;
+    margin-top: 70px;
+    font-size: 40px;
+    font-family: "Voltaire", sans-serif;
+    font-weight: 200;
 `
 
 export const BoldText = styled.b`
-    font-family: Canter-Bold, Arial, serif;
+    font-family: "Voltaire", sans-serif;
+    font-weight: 400;
 `
 
 const fadeInAnimation = keyframes`
@@ -49,9 +51,10 @@ const fadeInAnimation = keyframes`
 
 export const BodyElement = styled.p`
     opacity: 0;
-    color: rgba(255, 255, 255, ${(props: Props) => (0.7 - (0.1 * props.pos))});
+    color: rgba(255, 255, 255, ${(props: Props) => (0.7 - (0.08 * props.pos))});
     animation: ${fadeInAnimation} 0.5s linear forwards;
     animation-delay: ${(props: Props) => (0.25 * props.pos)}s;
+    margin-top: 45px;
 `
 
 // #hideMe {

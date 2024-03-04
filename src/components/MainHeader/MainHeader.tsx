@@ -5,16 +5,17 @@ const MainHeader = () => {
         <ImageContainer>
             <Background src={`${process.env.PUBLIC_URL}/media/main_img.jpg`} alt="background"/>
             <ShiftedTextContainer>
-                <Heading>Hey, Im Eli.</Heading>
+                <Heading>who dis</Heading>
                 <Body>
-                    <BoldText>CS</BoldText> and <BoldText>ECE</BoldText> at Cornell
-                    <BodyElement pos={0}>Software Developer</BodyElement>
-                    <BodyElement pos={1}>Game Designer</BodyElement>
-                    <BodyElement pos={2}>Music Maker</BodyElement>
-                    <BodyElement pos={3}>Amateur Baker</BodyElement>
-                    <BodyElement pos={4}>Video Producer</BodyElement>
-                    <BodyElement pos={5}>Type Racer</BodyElement>
-                    <BodyElement pos={6}>Equate Lover</BodyElement>
+                    <BoldText>eli zhang</BoldText> aka zeli
+                    <BodyElement pos={0}><BoldText>CS</BoldText> and <BoldText>ECE</BoldText> @ Cornell</BodyElement>
+                    <BodyElement pos={1}>Software Developer</BodyElement>
+                    <BodyElement pos={2}>Game Designer</BodyElement>
+                    <BodyElement pos={3}>Music Maker</BodyElement>
+                    <BodyElement pos={4}>Amateur Baker</BodyElement>
+                    <BodyElement pos={5}>Video Producer</BodyElement>
+                    <BodyElement pos={6}>Type Racer</BodyElement>
+                    <BodyElement pos={7}>Equate Lover</BodyElement>
                 </Body>
             </ShiftedTextContainer>
         </ImageContainer>

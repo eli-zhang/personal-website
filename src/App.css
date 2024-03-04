@@ -1,21 +1,8 @@
-@font-face {
-  font-family: 'Canter-Light';
-  src: local('Canter'), url(./fonts/Canter/Canter-Light.otf) format('opentype');
-}
-
-@font-face {
-    font-family: 'Canter-Bold';
-    font-weight: 900;
-    src: local('Canter'), url(./fonts/Canter/Canter-Bold.otf) format('opentype');
-}
-
-@font-face {
-    font-family: 'Canter-Bold3D';
-    src: local('Canter'), url(./fonts/Canter/Canter-Bold3D.otf) format('opentype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Voltaire&display=swap');
 
 .App {
   text-align: center;
+  font-family: 'Voltaire', sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,8 +20,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Voltaire', sans-serif;
 }
 
 .App-link {
   color: #61dafb;
+  font-family: 'Voltaire', sans-serif;
 }
