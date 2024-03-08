@@ -9,16 +9,20 @@ const NavBar = ({ tab }: { tab: string }) => {
             <Link to="/" style={{ textDecoration: 'none' }}>
                 <NavItem active={tab === "Home"}>Home</NavItem>
             </Link>
-            <Link to="/music" style={{ textDecoration: 'none' }}>
+            <Link to="https://github.com/eli-zhang/karaoke" style={{ textDecoration: 'none' }}>
+            {/* <Link to="/music" style={{ textDecoration: 'none' }}> */}
                 <NavItem active={tab === "Music"}>Music</NavItem>
             </Link>
-            <Link to="/games" style={{ textDecoration: 'none' }}>
+            {/* <Link to="/games" style={{ textDecoration: 'none' }}> */}
+            <Link to="https://graveyardshift.page/" style={{ textDecoration: 'none' }}>
                 <NavItem active={tab === "Games"}>Games</NavItem>
             </Link>
-            <Link to="/recipes" style={{ textDecoration: 'none' }}>
+            <Link to="https://www.daringgourmet.com/misir-wat-ethiopian-spiced-red-lentils/" style={{ textDecoration: 'none' }}>
+            {/* <Link to="/recipes" style={{ textDecoration: 'none' }}> */}
                 <NavItem active={tab === "Recipes"}>Recipes</NavItem>
             </Link>
-            <Link to="/other" style={{ textDecoration: 'none' }}>
+            <Link to="https://eli-zhang.github.io/math-scrabble/" style={{ textDecoration: 'none' }}>
+            {/* <Link to="/other" style={{ textDecoration: 'none' }}> */}
                 <NavItem active={tab === "Other"}>Other</NavItem>
             </Link>
         </NavItemsContainer>
