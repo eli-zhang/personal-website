@@ -1,18 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.2bc4e920.css",
-    "main.js": "./static/js/main.f494f6e6.js",
+    "main.css": "./static/css/main.38ff363e.css",
+    "main.js": "./static/js/main.556d64d3.js",
     "static/js/787.3058b895.chunk.js": "./static/js/787.3058b895.chunk.js",
-    "static/media/Canter-Bold3D.otf": "./static/media/Canter-Bold3D.51ddc43ec63e7cf1ba47.otf",
-    "static/media/Canter-Bold.otf": "./static/media/Canter-Bold.c3cb77e0daae91769c50.otf",
-    "static/media/Canter-Light.otf": "./static/media/Canter-Light.4d4570b632b529f70a36.otf",
     "index.html": "./index.html",
-    "main.2bc4e920.css.map": "./static/css/main.2bc4e920.css.map",
-    "main.f494f6e6.js.map": "./static/js/main.f494f6e6.js.map",
+    "main.38ff363e.css.map": "./static/css/main.38ff363e.css.map",
+    "main.556d64d3.js.map": "./static/js/main.556d64d3.js.map",
     "787.3058b895.chunk.js.map": "./static/js/787.3058b895.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bc4e920.css",
-    "static/js/main.f494f6e6.js"
+    "static/css/main.38ff363e.css",
+    "static/js/main.556d64d3.js"
   ]
 }
