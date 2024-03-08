@@ -19,7 +19,6 @@ export const ShiftedTextContainer = styled.div`
     color: white;
     top: 22vw;
     left: 48vw;
-    width: 100%;
     text-transform: lowercase; 
     text-align: left;
     line-height: 0px;
@@ -54,7 +53,7 @@ export const BodyElement = styled.p`
     color: rgba(255, 255, 255, ${(props: Props) => (0.7 - (0.08 * props.pos))});
     animation: ${fadeInAnimation} 0.5s linear forwards;
     animation-delay: ${(props: Props) => (0.25 * props.pos)}s;
-    margin-top: 45px;
+    margin-top: 50px;
 `
 
 // #hideMe {
