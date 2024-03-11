@@ -9,7 +9,7 @@ const NavBar = ({ tab }: { tab: string }) => {
             <Link to="/" style={{ textDecoration: 'none' }}>
                 <NavItem active={tab === "Home"}>Home</NavItem>
             </Link>
-            <Link to="https://github.com/eli-zhang/karaoke" style={{ textDecoration: 'none' }}>
+            <Link to="/music" style={{ textDecoration: 'none' }}>
             {/* <Link to="/music" style={{ textDecoration: 'none' }}> */}
                 <NavItem active={tab === "Music"}>Music</NavItem>
             </Link>

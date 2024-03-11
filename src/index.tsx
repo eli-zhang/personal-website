@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Homepage from './pages/Homepage/Homepage';
+import Home from './pages/Home/Home';
+import Music from './pages/Music/Music';
 import reportWebVitals from './reportWebVitals';
 import { Routes, Route, HashRouter,
   // BrowserRouter - Replace HashRouter
@@ -11,14 +12,9 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        {/* <Route path="/rooms" element={<RoomListPage />}>
-          <Route index element={<RoomListPage />} />
-          <Route path=":id" element={<RoomPage />} />
-        </Route>
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} /> */}
-        <Route path="*" element={<Homepage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/music" element={<Music />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>,
