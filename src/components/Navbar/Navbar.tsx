@@ -14,7 +14,7 @@ const NavBar = ({ tab }: { tab: string }) => {
                 <NavItem active={tab === "Music"}>Music</NavItem>
             </Link>
             {/* <Link to="/games" style={{ textDecoration: 'none' }}> */}
-            <Link to="https://graveyardshift.page/" style={{ textDecoration: 'none' }}>
+            <Link to="https://store.steampowered.com/app/1650820/Graveyard_Shift/" style={{ textDecoration: 'none' }}>
                 <NavItem active={tab === "Games"}>Games</NavItem>
             </Link>
             <Link to="https://www.daringgourmet.com/misir-wat-ethiopian-spiced-red-lentils/" style={{ textDecoration: 'none' }}>
