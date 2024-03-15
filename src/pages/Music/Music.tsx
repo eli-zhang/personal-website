@@ -1,7 +1,19 @@
-import { BackgroundContainer, InteractiveContentContainer, Heading, TextContainer, Description, LeftContainer, RightContainer, InlineContainer, Prompt, Dropdown, Button, SongCardContainer} from './styled'
+import { BackgroundContainer, InteractiveContentContainer, Heading, TextContainer, Description, NoteRangeContainer, RightContainer, InlineContainer, Prompt, CategoryButtonContainer, CategoryButton, Dropdown, Button, SongCardContainer} from './styled'
 import Navbar from '../../components/Navbar/Navbar'
 import allSongDetailsData from './all_song_detailed_info.json';
+import songCategories from './song_category_lists.json';
+import playlistInfo from './all_playlist_info.json';
 import { useState } from 'react';
+
+interface SongCategories {
+    [category: string]: string[];
+}
+const categories: SongCategories = songCategories;
+
+interface PlaylistTracks {
+    [playlistId: string]: string[];
+}
+const playlistTracks: PlaylistTracks = playlistInfo;
 
 const Music = () => {
 
@@ -28,9 +40,10 @@ const Music = () => {
 
     const [allSongDetails, setAllSongDetails] = useState<Songs>(allSongDetailsData);
     const [matchingSongs, setMatchingSongs] = useState<SongDetails[]>([]);
-    const [highestNote, setHighestNote] = useState('C4');
-    const [lowestNote, setLowestNote] = useState('C3');
+    const [highestNote, setHighestNote] = useState('A4');
+    const [lowestNote, setLowestNote] = useState('A2');
     const [currentPage, setCurrentPage] = useState(1);
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([Object.keys(categories)[0]]); 
     const itemsPerPage = 8;
 
     for (let octave = minOctave; octave <= maxOctave; octave++) {
@@ -67,6 +80,16 @@ const Music = () => {
         }
     }
 
+    const toggleCategory = (category: string) => {
+        setSelectedCategories((prevCategories) => {
+            if (prevCategories.includes(category)) {
+                return prevCategories.filter((c) => c !== category);
+            } else {
+                return [...prevCategories, category];
+            }
+        });
+    };
+
     type SongDetails = {
         max_note: number;
         min_note: number;
@@ -78,11 +101,49 @@ const Music = () => {
         [key: string]: SongDetails;
     };
 
+    
+
     const getMatchingSongs = async (lowestNoteInRange: number, highestNoteInRange: number) => {
-        const matchingSongs =  Object.entries(allSongDetails).map(details => details[1]).filter((songInfo) => {
+
+        const filteredSongIds = new Set();
+        selectedCategories.forEach(category => {
+            if (category in categories) {
+                categories[category].forEach(playlistId => {
+                    if (playlistId in playlistInfo) {
+                         playlistTracks[playlistId].forEach(trackId => filteredSongIds.add(trackId));
+                    }
+                });
+            }
+        });
+        
+
+        const filteredSongDetails = Object.entries(allSongDetails).filter(([_, value]) => { return value.track_id != null && filteredSongIds.has(value.track_id)})
+        
+        const matchingSongs =  filteredSongDetails.map(details => details[1]).filter((songInfo) => {
             let maxNoteInSong = songInfo.max_note
             let minNoteInSong = songInfo.min_note
-            return maxNoteInSong <= highestNoteInRange && minNoteInSong >= lowestNoteInRange;
+            let trackId = songInfo.track_id
+
+            if (trackId == null || maxNoteInSong > highestNoteInRange || minNoteInSong < lowestNoteInRange) {
+                return false;
+            }
+
+            let isCategoryMatch = false;
+            Object.entries(playlistTracks).forEach((playlist) => {
+                let playlistId = playlist[0];
+                let tracks = playlist[1];
+                console.log(trackId!)
+
+                if (tracks.includes(trackId!)) {
+                    selectedCategories.forEach(category => {
+                        if (category in categories && categories[category].includes(playlistId)) {
+                            isCategoryMatch = true;
+                        }
+                    })
+                }
+            })
+
+            return isCategoryMatch;
         });
         setMatchingSongs(matchingSongs); 
     }
@@ -96,7 +157,7 @@ const Music = () => {
                     <InteractiveContentContainer>
                         <Description>put in your vocal range & i'll give you a list of every song 
                             (out of the 15,000 most popular) that's within your range.</Description>
-                        <LeftContainer>
+                        <NoteRangeContainer>
                             <InlineContainer>
                                 <Prompt>lowest note you can sing:</Prompt>
                                 <Dropdown defaultValue={lowestNote} onChange={(e) => setLowestNote(e.target.value)}>
@@ -109,7 +170,18 @@ const Music = () => {
                                     {noteOptions}
                                 </Dropdown>
                             </InlineContainer>
-                        </LeftContainer>
+                        </NoteRangeContainer>
+                        <CategoryButtonContainer>
+                                {Object.keys(songCategories).map((category) => (
+                                    <CategoryButton
+                                        key={category}
+                                        onClick={() => toggleCategory(category)}
+                                        isSelected={selectedCategories.includes(category)}
+                                    >
+                                        {category}
+                                    </CategoryButton>
+                                ))}
+                            </CategoryButtonContainer>
                         <RightContainer>
                             <Button onClick={getNotes}>gimme my songs</Button>
                         </RightContainer>

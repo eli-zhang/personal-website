@@ -25,6 +25,7 @@ export const Heading = styled.h1`
     font-weight: 200;
     text-transform: lowercase;
     text-align: center;
+    margin-top: 30px;
     margin-bottom: 20px;
 `
 
@@ -35,10 +36,11 @@ export const TextContainer = styled.div`
 export const Description = styled.p`
     color: #c0c0c0;
     font-size: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
 `
 
-export const LeftContainer = styled.div`
+export const NoteRangeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -98,3 +100,15 @@ export const Dropdown = styled.select`
     font-family: "Voltaire", sans-serif;
     cursor: pointer;
 `
+
+export const CategoryButtonContainer = styled.div`
+    margin-top: 10px;
+`;
+
+export const CategoryButton = styled(Button)<{ isSelected: boolean }>`
+    margin-right: 10px;
+    background: ${({ isSelected }) => (isSelected ? '#246F5A' : 'black')}; 
+    color: white; 
+    padding: 8px 10px;
+    font-size: 14px; 
+`;
