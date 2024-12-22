@@ -5,7 +5,7 @@ import songCategories from './song_category_lists.json';
 import playlistInfo from './all_playlist_info.json';
 import { useState } from 'react';
 
-interface SongCategories {
+interface SongCategories {  
     [category: string]: string[];
 }
 const categories: SongCategories = songCategories;
@@ -44,6 +44,7 @@ const Music = () => {
     const [lowestNote, setLowestNote] = useState('A2');
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedCategories, setSelectedCategories] = useState<string[]>([Object.keys(categories)[0]]); 
+    const [allowHigherOctave, setAllowHigherOctave] = useState(false);
     const itemsPerPage = 8;
 
     for (let octave = minOctave; octave <= maxOctave; octave++) {
@@ -90,6 +91,10 @@ const Music = () => {
         });
     };
 
+    const toggleAllowHigherOctave = () => {
+        setAllowHigherOctave(!allowHigherOctave);
+    }
+
     type SongDetails = {
         max_note: number;
         min_note: number;
@@ -104,6 +109,11 @@ const Music = () => {
     
 
     const getMatchingSongs = async (lowestNoteInRange: number, highestNoteInRange: number) => {
+
+        if (allowHigherOctave) {
+            lowestNoteInRange += 12;
+            highestNoteInRange += 12;
+        }
 
         const filteredSongIds = new Set();
         selectedCategories.forEach(category => {
@@ -170,6 +180,12 @@ const Music = () => {
                                     {noteOptions}
                                 </Dropdown>
                             </InlineContainer>
+                            <CategoryButton
+                                onClick={toggleAllowHigherOctave}
+                                isSelected={allowHigherOctave}
+                            >
+                                shift range up one octave
+                            </CategoryButton>
                         </NoteRangeContainer>
                         <CategoryButtonContainer>
                                 {Object.keys(songCategories).map((category) => (

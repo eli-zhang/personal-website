@@ -4,9 +4,13 @@ export const BackgroundContainer = styled.div`
     background-color: #101010;
     color: white;
     font-family: "Voltaire", sans-serif;
-    position: fixed;
+    position: relative; /* Changed from fixed to relative */
     width: 100%;
-    height: 100%;
+    min-height: 100vh; /* Ensure it covers at least the viewport height */
+    padding: 20px; /* Add padding */
+    @media (max-width: 768px) {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
 `
 
 export const InteractiveContentContainer = styled.div`
@@ -16,6 +20,7 @@ export const InteractiveContentContainer = styled.div`
     justify-content: center;
     margin-top: 20px;
     font-weight: 100;
+    width: 100%; /* Ensure full width */
 `
 
 export const Heading = styled.h1`
@@ -27,6 +32,10 @@ export const Heading = styled.h1`
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+        font-size: 40px; /* Smaller font size for smaller screens */
+    }
 `
 
 export const TextContainer = styled.div`
@@ -44,6 +53,10 @@ export const NoteRangeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (max-width: 768px) {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
 `
 
 export const RightContainer = styled.div`
@@ -71,6 +84,11 @@ export const Button = styled.button`
     margin: 20px 2px;
     cursor: pointer;
     font-family: "Voltaire", sans-serif;
+
+    @media (max-width: 768px) {
+        padding: 10px 15px; /* Smaller padding */
+        font-size: 16px; /* Smaller font size */
+    }
 `
 
 export const SongCardContainer = styled.div`
@@ -79,6 +97,16 @@ export const SongCardContainer = styled.div`
     gap: 20px;
     margin-top: 20px;
     padding: 0 50px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr); /* Less columns on smaller screens */
+        padding: 0 10px; /* Further reduce padding for smaller screens */
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+        padding: 0 5px; /* Minimal padding for very small screens */
+    }
 `
 
 export const InlineContainer = styled.div`
@@ -99,6 +127,11 @@ export const Dropdown = styled.select`
     font-size: 16px;
     font-family: "Voltaire", sans-serif;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        padding: 8px; /* Smaller padding */
+        font-size: 14px; /* Smaller font size */
+    }
 `
 
 export const CategoryButtonContainer = styled.div`
